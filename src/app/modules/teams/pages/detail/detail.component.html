@@ -1,0 +1,13 @@
+<mat-spinner *ngIf="isLoading" diameter="50"></mat-spinner>
+
+<ul *ngIf="!isLoading" class="players">
+  <li class="players__item" *ngFor="let player of players">
+    <img class="players__item-img" [src]="player.strThumb" [alt]="player.strPlayer">
+    <div class="players__item-desc">
+      <h3>{{ player.strPlayer }}</h3>
+      <span>{{ player.strPosition }}</span>
+      <span>{{ player.dateBorn }}</span>
+      <span>{{ player.strSigning }}</span>
+    </div>
+  </li>
+</ul>

@@ -1,0 +1,9 @@
+<mat-spinner *ngIf="isLoading" diameter="50"></mat-spinner>
+
+<ul *ngIf="!isLoading" class="list">
+  <li class="list__item" *ngFor="let team of teams">
+    <a [routerLink]="['/teams', league, team.idTeam]">
+      <img class="list__item-img" [src]="team.strTeamBadge">
+    </a>
+  </li>
+</ul>

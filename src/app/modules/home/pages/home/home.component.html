@@ -1,0 +1,17 @@
+<form class="home" [formGroup]="homeForm">
+  <mat-spinner *ngIf="isLoading" diameter="50"></mat-spinner>
+
+  <mat-form-field *ngIf="!isLoading" class="home__field">
+    <input matInput placeholder="Search by league" [matAutocomplete]="auto" formControlName='leagueInput'>
+  </mat-form-field>
+
+  <mat-autocomplete
+    #auto="matAutocomplete"
+    [displayWith]="displayLeaguesFn()"
+    (optionSelected)="onLeagueSelected($event)"
+  >
+    <mat-option *ngFor="let league of filteredLeagues | async" [value]="league.idLeague">
+      <span>{{ league.strLeague }}</span>
+    </mat-option>
+  </mat-autocomplete>
+</form>
